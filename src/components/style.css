@@ -1,0 +1,29 @@
+:root {
+  --smartbiz-text-primary: #1A6BFF;
+  --smartbiz-text-secondary: #6B7280;
+  --smartbiz-bg-primary: #1A6BFF;
+  --smartbiz-primary-btn: #1A6BFF;
+}
+
+.smartbiz-text-primary {
+  color: var(--smartbiz-text-primary);
+}
+
+.smartbiz-text-secondary {
+  color: var(--smartbiz-text-secondary);
+}
+
+.smartbiz-bg-primary {
+  background-color: var(--smartbiz-bg-primary);
+}
+
+.smartbiz-primary-btn {
+  background-color: var(--smartbiz-primary-btn);
+  color: #ffffff;
+}
+
+.smartbiz-btn-outline {
+  color: var(--smartbiz-text-primary);
+  border: 2px solid var(--smartbiz-text-primary);
+  background-color: transparent;
+}
