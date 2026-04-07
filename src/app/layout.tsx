@@ -30,8 +30,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className}  antialiased`}
+        className={`${inter.className} antialiased relative`}
       >
+        {/* The body is positioned so absolute page content inside app/dashboard/page.tsx can stretch full width */}
         <ReactQueryProvider>
           {children}
         </ReactQueryProvider>

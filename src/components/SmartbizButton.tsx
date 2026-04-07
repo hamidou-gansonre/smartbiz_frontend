@@ -1,19 +1,21 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 type SmartbizButtonProps = {
   label: string;
   loading?: boolean;
   bgColor?: string;
   textColor?: string;
+  icon?: ReactNode;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function SmartbizButton({
   label,
   loading = false,
-  bgColor = "var(--smartbiz-bg-primary, #1A6BFF)",
-  textColor = "#ffffff",
+  bgColor = "smartbiz-bg-primary",
+  textColor = "text-white",
   disabled = false,
   className = "",
+  icon,
   ...props
 }: SmartbizButtonProps) {
   return (
@@ -21,14 +23,16 @@ export default function SmartbizButton({
       {...props}
       type={props.type || "button"}
       disabled={disabled || loading}
-      className={`w-full  rounded-xl py-3 text-base font-bold transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
-      style={{
-        backgroundColor: bgColor,
-        color: textColor,
-        border: "none",
-      }}
+      className={`w-full flex items-center justify-center gap-2 rounded-xl py-3 text-base font-bold transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60 border-none ${bgColor} ${textColor} ${className}`}
     >
-      {loading ? "Chargement..." : label}
+      {loading ? (
+        "Chargement..."
+      ) : (
+        <>
+          {icon && <span>{icon}</span>}
+          {label}
+        </>
+      )}
     </button>
   );
 }
