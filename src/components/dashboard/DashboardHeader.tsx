@@ -6,24 +6,23 @@ import SmartbizButton from "@/components/SmartbizButton";
 interface DashboardHeaderProps {
   title: string;
   subtitle: string;
+  buttonLabel?: string;
+  onButtonClick?: () => void;
 }
 
 export default function DashboardHeader({
   title,
   subtitle,
+  buttonLabel,
+  onButtonClick,
 }: DashboardHeaderProps) {
-  const handleAddInvoice = () => {
-    // TODO: Implement invoice creation navigation
-    console.log("Add invoice clicked");
-  };
-
   const handleNotifications = () => {
     // TODO: Implement notifications handler
     console.log("Notifications clicked");
   };
 
   return (
-    <header className="w-full h-20 flex items-center justify-between bg-white border-b border-gray-200 px-8">
+    <header className="w-full h-20 flex items-center justify-between bg-white  border-gray-200 px-8">
       <div className="flex flex-col justify-center">
         <h1 className="text-3xl font-bold text-gray-900 leading-none mb-1">
           {title}
@@ -31,12 +30,14 @@ export default function DashboardHeader({
         <span className="text-sm text-gray-500 font-medium">{subtitle}</span>
       </div>
       <div className="flex items-center gap-5">
-        <SmartbizButton
-          label="Ajouter une facture"
-          icon={<PlusCircle size={22} weight="regular" />}
-          className="w-auto px-5"
-          onClick={handleAddInvoice}
-        />
+        {buttonLabel && onButtonClick && (
+          <SmartbizButton
+            label={buttonLabel}
+            icon={<PlusCircle size={22} weight="regular" />}
+            className="w-auto px-5"
+            onClick={onButtonClick}
+          />
+        )}
         <button
           onClick={handleNotifications}
           aria-label="Notifications"

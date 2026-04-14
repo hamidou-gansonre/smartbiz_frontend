@@ -5,7 +5,7 @@ import { LightbulbIcon } from "@phosphor-icons/react";
 
 export default function CTASection() {
   return (
-    <section className="mt-24 rounded-lg smartbiz-bg-primary p-8 text-white ">
+    <section className="mt-10 rounded-lg smartbiz-bg-primary p-8 text-white ">
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div className="max-w-3xl">
             <SmartbizButton

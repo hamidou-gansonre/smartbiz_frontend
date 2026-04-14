@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.className} antialiased relative`}
-      >
+        suppressHydrationWarning >
         {/* The body is positioned so absolute page content inside app/dashboard/page.tsx can stretch full width */}
         <ReactQueryProvider>
           {children}

@@ -16,19 +16,32 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   React.useEffect(() => {
-    document.documentElement.style.setProperty('--sidebar-width', collapsed ? '72px' : '260px');
+    if (typeof window !== 'undefined') {
+      document.documentElement.style.setProperty('--sidebar-width', collapsed ? '72px' : '287px');
+    }
   }, [collapsed]);
 
   return (
     <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
       <div>
+        <div className="flex justify-end"> 
+        <button
+            type="button"
+            className="sidebar__brand-toggle mb-4 "
+            onClick={() => setCollapsed((value) => !value)}
+            aria-label={collapsed ? "Ouvrir le menu" : "Réduire le menu"}
+          >
+            {collapsed ? "›" : "‹"}
+          </button>
+
+        </div>
         <div className="sidebar__brand">
           <div className="sidebar__brand-left">
             {collapsed ? (
               <Image
                 src="/logo-smartBiz-icon.png"
                 alt="SmartBiz Logo Icon"
-                className="sidebar__brand-logo"
+                className="sidebar__brand-icon"
                 width={100}
                 height={100}
               />
@@ -37,19 +50,12 @@ export default function Sidebar() {
                 src="/logo-smartBiz.png"
                 alt="SmartBiz Logo"
                 className="sidebar__brand-logo"
-                width={128}
-                height={48}
+                width={210}
+                height={70}
               />
             )}
           </div>
-          <button
-            type="button"
-            className="sidebar__brand-toggle"
-            onClick={() => setCollapsed((value) => !value)}
-            aria-label={collapsed ? "Ouvrir le menu" : "Réduire le menu"}
-          >
-            {collapsed ? "›" : "‹"}
-          </button>
+          
         </div>
 
         <nav className="sidebar__nav" aria-label="Main navigation">
